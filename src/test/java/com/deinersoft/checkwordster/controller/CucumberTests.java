@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
 //      strict = true,
 //      tags     = "",
 //      monochrome = false,
-        features = { "src/test/java/com/com/deinersoft/checkwordster/controller/features" },
-        glue     = { "test.java.com.capitalone.checkwordster" },
+        features = { "src/test/java/com/deinersoft/checkwordster/controller/features" },
+        glue     = { "com.deinersoft.checkwordster.controller" },
         plugin   = { "pretty", "html:target/cucumber-reports/cucumber-html-report", "json:target/cucumber-reports/cucumber-json-report.json" }
 )
 
