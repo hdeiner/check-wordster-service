@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 //      monochrome = false,
         features = { "src/test/java/com/deinersoft/checkwordster/controller/features" },
         glue     = { "com.deinersoft.checkwordster.controller" },
-        plugin   = { "pretty", "html:target/cucumber-reports/cucumber-html-report", "json:target/cucumber-reports/cucumber-json-report.json" }
+        plugin   = { "pretty", "html:target/controller-reports/controller-html-report", "json:target/controller-reports/controller-json-report.json" }
 )
 
 public class CucumberTests {

@@ -1,19 +1,26 @@
-package com.deinersoft.checkwordster.controller;
+package com.deinersoft.checkwordster.smoke;
 
+import com.deinersoft.checkwordster.controller.CheckWordsterConfiguration;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.IntegrationTest;
+import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.http.*;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
+//@SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
+@ContextConfiguration(classes = CheckWordsterConfiguration.class, loader = SpringApplicationContextLoader.class)
+@WebAppConfiguration
+@IntegrationTest
 public class SmokeTests {
 	ResponseEntity<String> response;
 

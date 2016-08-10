@@ -23,6 +23,7 @@ public class CucumberStepDefs extends CucumberStepDefsSpringConcerns {
     @Given("^I am using a local server$")
     public void i_am_using_a_local_server() throws Throwable {
         checkWordsterCucumberClientInterface = new CucumberClientImplLocal();
+        checkWordsterCucumberClientInterface.startServer();
     }
 
     @Then("^I stop the server$")

@@ -9,10 +9,20 @@ import org.springframework.web.client.RestTemplate;
 
 public class CucumberClientImplLocal implements CucumberClientInterface {
 
+    private static boolean running = false;
+
     public void startServer(){
+        if (!running) {
+            CheckWordsterConfiguration.main(new String[0]);
+            running = true;
+        }
     };
 
     public void stopServer(){
+        if (running) {
+            CheckWordsterConfiguration.initiateShutdown();
+            running = false;
+        }
     };
 
     public String getWords(String digits){
