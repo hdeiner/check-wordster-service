@@ -27,7 +27,6 @@ public class CucumberClientImplLocal implements CucumberClientInterface {
         ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:9000/convertToWords", httpRequest, String.class);
         JSONObject json = new JSONObject(response.getBody());
         return json.getString("numberInWords");
-
     };
 }
 

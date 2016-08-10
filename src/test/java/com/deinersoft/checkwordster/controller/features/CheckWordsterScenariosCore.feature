@@ -7,12 +7,8 @@ Feature: CheckWordsterScenariosWithoutServer
   Unlike ECPS (Enterprise Check Production System),
   Our product gives checks that old time feeling, with amounts in both numbers and words.
 
-  Background: No Server
-    Given I am not using a server
-
   Scenario Outline: Convert numbers into words when all goes well
-    When I convert "<number>" into words
-    Then it should be "<words>"
+    When the core components convert "<number>" should become "<words>"
 
     Examples:
       |number       |words                                                                                                                                 |
@@ -80,8 +76,7 @@ Feature: CheckWordsterScenariosWithoutServer
       |3.1          |Three and 10/100                                                                                                                      |
 
   Scenario Outline: Convert numbers into words when there are errors
-    When I convert "<number>" into words
-    Then an exception "<exception>" should be thrown
+    When the core components convert "<number>" then an excecption of "<exception>" should be thrown
 
     Examples:
       |number           |exception              |

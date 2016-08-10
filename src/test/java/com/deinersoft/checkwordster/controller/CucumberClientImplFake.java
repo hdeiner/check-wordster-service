@@ -46,7 +46,7 @@ public class CucumberClientImplFake implements CucumberClientInterface {
         URI uri;
 
         try {
-            url = new URL("http://localhost:9010/checkWordster");
+            url = new URL("http://localhost:9010/convertToWords");
             uri = new URI(url.getProtocol(), url.getUserInfo(), url.getHost(), url.getPort(), url.getPath(), url.getQuery(), url.getRef());
             String requestToPost = "{\"numberInDigits\": \"" + digits + "\"}";
 

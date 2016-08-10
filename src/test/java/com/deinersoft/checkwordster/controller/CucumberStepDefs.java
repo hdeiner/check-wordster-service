@@ -14,11 +14,6 @@ public class CucumberStepDefs extends CucumberStepDefsSpringConcerns {
 
     private String stringToConvert;
 
-    @Given("^I am not using a server$")
-    public void i_am_not_using_a_server() throws Throwable {
-        checkWordsterCucumberClientInterface = new CucumberClientImplNone();
-    }
-
     @Given("^I am using a fake server$")
     public void i_am_using_a_fake_server() throws Throwable {
         checkWordsterCucumberClientInterface = new CucumberClientImplFake();

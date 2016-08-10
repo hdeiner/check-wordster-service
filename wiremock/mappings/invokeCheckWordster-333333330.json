@@ -1,6 +1,6 @@
 {
   "request" : {
-    "url" : "/checkWordster",
+    "url" : "/convertToWords",
     "method" : "POST",
     "bodyPatterns" : [{
       "equalToJson" : "{\"numberInDigits\": \"333,333,330\"}"
