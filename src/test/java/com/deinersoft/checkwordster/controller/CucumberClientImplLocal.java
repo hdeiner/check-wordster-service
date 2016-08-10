@@ -7,16 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.DEFINED_PORT)
-//@WebAppConfiguration
-//@IntegrationTest
 public class CucumberClientImplLocal implements CucumberClientInterface {
-//    @Value("${local.server.port}")
-//    private int serverPort;
-//
-//    @Value("${local.management.port}")
-//    private int managementPort;
 
     public void startServer(){
     };

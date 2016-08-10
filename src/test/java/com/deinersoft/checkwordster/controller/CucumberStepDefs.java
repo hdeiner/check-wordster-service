@@ -10,28 +10,23 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CucumberStepDefs extends CucumberStepDefsSpringConcerns {
-    private static Boolean isServerInUse = false;
-    private static String serverTypeInUse = "";
     private static CucumberClientInterface checkWordsterCucumberClientInterface;
 
     private String stringToConvert;
 
     @Given("^I am not using a server$")
     public void i_am_not_using_a_server() throws Throwable {
-        isServerInUse = false;
+        checkWordsterCucumberClientInterface = new CucumberClientImplNone();
     }
 
     @Given("^I am using a fake server$")
     public void i_am_using_a_fake_server() throws Throwable {
-        isServerInUse = true;
-        serverTypeInUse = "fake";
         checkWordsterCucumberClientInterface = new CucumberClientImplFake();
+        checkWordsterCucumberClientInterface.startServer();
     }
 
     @Given("^I am using a local server$")
     public void i_am_using_a_local_server() throws Throwable {
-        isServerInUse = true;
-        serverTypeInUse = "local";
         checkWordsterCucumberClientInterface = new CucumberClientImplLocal();
     }
 
@@ -47,14 +42,7 @@ public class CucumberStepDefs extends CucumberStepDefsSpringConcerns {
 
     @Then("^it should be \"([^\"]*)\"$")
     public void it_should_be(String numberInWords) throws Throwable {
-
-        if (!isServerInUse) {
-            CheckWordster checkWordster = new CheckWordster(stringToConvert);
-            assertThat(checkWordster.getWords(), is(numberInWords));
-        }
-        else {
-            assertThat(checkWordsterCucumberClientInterface.getWords(stringToConvert), is(numberInWords));
-        }
+        assertThat(checkWordsterCucumberClientInterface.getWords(stringToConvert), is(numberInWords));
     }
 
     @Then("^an exception \"([^\"]*)\" should be thrown$")
