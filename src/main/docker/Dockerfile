@@ -1,7 +1,6 @@
-MAINTAINER Howard Deiner
-
 # Pull base image.
 FROM ubuntu:14.04
+MAINTAINER Howard Deiner
 
 # Install Java.
 RUN apt-get update
